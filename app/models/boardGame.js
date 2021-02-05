@@ -44,30 +44,13 @@ class Boardgame {
     }
 
     // pas statique car propre à chaque instance
+    
     async save() {
-        console.log(this);
         // props de this => insérer une ligne dans la bdd
-        const { rows } = await db.query(`
-        SELECT *
-        FROM new_boardgame(
-            $1, $2,
-            $3, $4,
-            $5, $6,
-            $7, $8
-        );`, 
-        [
-            this.name,
-            this.minAge,
-            this.minPlayers,
-            this.maxPlayers,
-            this.type,
-            this.note,
-            this.duration,
-            this.creator
-        ]);
+        const { rows } = await db.query(`SELECT * FROM new_boardgame($1);`, [this]); // minAge
 
         this.id = rows[0].id;
-    }
+    } 
 }
 
 module.exports = Boardgame;

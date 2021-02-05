@@ -4,3 +4,4 @@
 init 2021-02-04T13:03:26Z Jean-Francois <jf.arnould07@gmail.com> # création de la table et du Domaine pint
 check_players 2021-02-05T08:45:05Z Jean-Francois <jf.arnould07@gmail.com> # ajout d'une contrainte check pour min < max players
 rdgame/insert 2021-02-05T09:03:41Z Jean-Francois <jf.arnould07@gmail.com> # fonction d'insertion de jeu de société
+rdgame/insert-json 2021-02-05T11:02:34Z Jean-Francois <jf.arnould07@gmail.com> # fonction new_boardgame version améliorée
