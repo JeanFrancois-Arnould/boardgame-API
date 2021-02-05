@@ -1,38 +1,37 @@
 const db = require('../database');
 
-//model Activ-Record
 class Boardgame {
     id;
     name;
+    // camelCase ici, snake_case côté BDD
     minAge;
     minPlayers;
     maxPlayers;
+    type;
+    note;
     duration;
     creator;
-    
-    // setters car camelCase => JS et snake_case => BDD 
-    
-    set min_players(val){
-        this.minPlayers =val;
-    };
-    set max_players(val){
-        this.maxPlayers =val;
-    };
-    set min_age(val){
-        this.minAge =val;
-    };
 
-    constructor(data= {}){
+    set min_players(val) {
+        this.minPlayers = val;
+    }
+
+    set max_players(val) {
+        this.maxPlayers = val;
+    }
+
+    set min_age(val) {
+        this.minAge = val;
+    }
+
+    constructor(data = {}) {
         for (const prop in data) {
-            this[prop] = prop[data];
+            this[prop] = data[prop];
         }
     }
-    /**
-     * trouve toute les instances de Boardgame
-     * 
-     */
-    static async findAll(){
-        
+
+    static async findAll() {
+
         const { rows } = await db.query('SELECT * FROM boardgame;');
 
         return rows.map(game => new Boardgame(game));
@@ -44,6 +43,31 @@ class Boardgame {
         return new Boardgame(rows[0]);
     }
 
-};
+    // pas statique car propre à chaque instance
+    async save() {
+        console.log(this);
+        // props de this => insérer une ligne dans la bdd
+        const { rows } = await db.query(`
+        SELECT *
+        FROM new_boardgame(
+            $1, $2,
+            $3, $4,
+            $5, $6,
+            $7, $8
+        );`, 
+        [
+            this.name,
+            this.minAge,
+            this.minPlayers,
+            this.maxPlayers,
+            this.type,
+            this.note,
+            this.duration,
+            this.creator
+        ]);
+
+        this.id = rows[0].id;
+    }
+}
 
 module.exports = Boardgame;
