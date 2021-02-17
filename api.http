@@ -1,0 +1,21 @@
+###get 
+
+GET http://localhost:3000/v1/boardgames
+
+
+
+### post
+
+POST http://localhost:3000/v1/boardgames
+Content-Type: application/json
+
+{
+    "name": "Uno",
+    "minAge": 8,
+    "minPlayers": 3,
+    "maxPlayers": 6,
+    "type": "déduction",
+    "note": 4,
+    "duration": 20,
+    "creator": "Anthony Pratt"
+}

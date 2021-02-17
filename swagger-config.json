@@ -1,0 +1,15 @@
+{
+    "swaggerDefinition": {
+        "info": {
+            "description": "collection de jeux de société",
+            "title": "Boargames",
+            "version": "1.0.0"
+        },
+        "basePath": "/api",
+        "produces": [
+            "application/json"
+        ],
+        "schemes": ["http"]
+    },
+    "files": ["./app/router.js", "./app/models/*.js", "./app/controllers/*.js"]
+}
