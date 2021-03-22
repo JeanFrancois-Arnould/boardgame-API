@@ -10,7 +10,7 @@ const expressSwagger = require('express-swagger-generator')(app);
 
 let options = require('./swagger-config.json');
 options.basedir = __dirname; // __dirname désigne le dossier du point d'entrée
-options.swaggerDefinition.host = `localhost:${port}`;
+options.swaggerDefinition.host = `https://api-boardgames.herokuapp.com` ||`localhost:${port}`;
 
 expressSwagger(options);
 
