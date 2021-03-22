@@ -28,14 +28,7 @@ router.get('/boardgames/:id', boardgameController.oneBoardgames);
  * créé un boardGames dans la BDD
  * @route POST /boardgames
  * @group boardgames - ajouter un nouveau jeux
- * @param {string} name.body - le nom du jeux
- * @param {integer} minAge.body - age minimum pour jouer
- * @param {integer} minPlayers.body - nombre min de joueurs
- * @param {integer} maxPlayers.body - nombre max de joueurs / peut etre null
- * @param {string} type.body - la catégorie du jeux
- * @param {integer} note.body - la note sur 5 du jeux
- * @param {integer} duration.body - la durée en minute
- * @param {string} creator.body - le créateur du jeux
+ * @param {boardgameSchema.model} name.body - le nom du jeux
  * @returns {array} 200 - nouveau boardGame créé
  */
 router.post('/boardgames', validateBody(boardgameSchema) , boardgameController.newBoardgame);

@@ -1,12 +1,12 @@
 ###get 
 
-GET http://localhost:3000/v1/boardgames
+GET http://localhost:3000/api/boardgames
 
 
 
 ### post
 
-POST http://localhost:3000/v1/boardgames
+POST http://localhost:3000/api/boardgames
 Content-Type: application/json
 
 {
