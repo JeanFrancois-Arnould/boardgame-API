@@ -2,7 +2,7 @@ const { Router } = require('express');
 const boardgameController = require('./controllers/boardGameController');
 const { validateBody } = require('./services/validator');
 const boardgameSchema = require('./schemas/boardgame');
-const boardGame = require('./models/boardGame')
+const { Boardgame } = require('./models')
 const router = Router();
 
 
@@ -29,7 +29,7 @@ router.get('/boardgames/:id', boardgameController.oneBoardgames);
  * créé un boardGames dans la BDD
  * @route POST /boardgames
  * @group boardgames - ajouter un nouveau jeux
- * @param {boardGame.model} boardGame.body - le nom du jeux
+ * @param {Boardgame.model} boardGame.body - le nom du jeux
  * @returns {array} 200 - nouveau boardGame créé
  */
 router.post('/boardgames', validateBody(boardgameSchema) , boardgameController.newBoardgame);
