@@ -1,6 +1,7 @@
 const db = require('../database');
 /**
  * @typedef Boardgame
+ * @class
  * @property {integer} id.required id du jeux en BDD
  * @property {string} name.required - nom du jeux
  * @property {integer} minAge.required - age min pour jouer

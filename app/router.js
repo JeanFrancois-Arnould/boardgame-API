@@ -2,7 +2,6 @@ const { Router } = require('express');
 const boardgameController = require('./controllers/boardGameController');
 const { validateBody } = require('./services/validator');
 const boardgameSchema = require('./schemas/boardgame');
-const { Boardgame } = require('./models')
 const router = Router();
 
 
